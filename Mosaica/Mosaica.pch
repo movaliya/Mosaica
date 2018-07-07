@@ -1,0 +1,92 @@
+//
+//  Mosaica.pch
+//  Mosaica
+//
+//  Created by jignesh solanki on 03/07/2018.
+//  Copyright © 2018 jignesh solanki. All rights reserved.
+//
+
+#import <Availability.h>
+#import "CCKFNavDrawer.h"
+#import "CommonWS.h"
+#import "AFNetworking.h"
+#import "KVNProgress.h"
+#import "AppDelegate.h"
+#import "UIImageView+WebCache.h"
+
+
+// AFNetworking
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+
+//AlertView Title
+#define AlertTitle @"Success"
+#define AlertTitleError @""
+
+#define KmyappDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+#define AppGrayColor    [UIColor colorWithRed:115/255.0 green:115/255.0 blue:115/255.0 alpha:1.0]
+#define AppBlueColor    [UIColor colorWithRed:65/255.0 green:80/255.0 blue:183/255.0 alpha:1.0]
+
+static NSString *LIVEVideoHTML = @"<!DOCTYPE html><html><body><div id=\"player\"><script>var tag = document.createElement('script');tag.src = \"http://www.youtube.com/iframe_api\";var firstScriptTag = document.getElementsByTagName('script')[0];firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);var player;function onYouTubeIframeAPIReady() { player = new YT.Player('player', { height: '%0.0f', width: '%0.0f', videoId: '%@', events: { 'onReady': onPlayerReady, }, playerVars: { playsinline: 1 } }); } function onPlayerReady(event) { event.target.playVideo(); }</script></body></html>";
+
+
+
+#define BaseUrl @"http://mosaicatv.sumayinfotech.com/ws/"
+
+#define Gettimetable @"get_timetable"
+#define Getsociallink @"get_sociallink"
+#define ContactUsLink @"set_contactus"
+#define aboutLink @"get_aboutus"
+#define bannerLink @"get_advertisement"
+#define FBLogin @"facebook_login"
+
+
+
+
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
+//Get Device Height
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+//Get Device Height
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+#define IS_IPHONE_4 (IS_IPHONE && SCREEN_MAX_LENGTH == 480.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
+#define SelectedLabel [UIColor whiteColor]
+#define UnSelectedLabel [UIColor colorWithRed:78.0/255.0 green:78.0/255.0 blue:78.0/255.0 alpha:1.0]
+
+//Calender
+#ifdef __IPHONE_8_0
+#define GregorianCalendar NSCalendarIdentifierGregorian
+#else
+#define GregorianCalendar NSGregorianCalendar
+#endif
+
+
+//Check if iphone5 or iphone 4
+#define isIPhone5 ([UIScreen mainScreen].bounds.size.height == 568.0)
+
+//Get Device height Differenct in iphone4 and iphone 5
+#define SCREEN_HEIGHT_DIFF (568-SCREEN_HEIGHT)
+
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "AppDelegate.h"
+
+#endif
+
