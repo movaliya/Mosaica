@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PCX-T6-PN7">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="PCX-T6-PN7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SideMenuLogo" translatesAutoresizingMaskIntoConstraints="NO" id="f7F-ky-8Ko">
                                 <rect key="frame" x="124.66666666666669" y="256" width="163" height="138"/>
@@ -46,12 +46,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.078431372549019607" green="0.19215686274509802" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PCX-T6-PN7" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="2is-eH-wQv"/>
                             <constraint firstItem="MiH-Fy-mLO" firstAttribute="top" secondItem="f7F-ky-8Ko" secondAttribute="bottom" constant="22" id="Ac1-N6-hDJ"/>
                             <constraint firstItem="S1D-S2-sNc" firstAttribute="top" secondItem="MiH-Fy-mLO" secondAttribute="bottom" constant="15" id="Bi3-Ic-0dK"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="PCX-T6-PN7" secondAttribute="bottom" id="E3w-1v-mX6"/>
                             <constraint firstItem="f7F-ky-8Ko" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-43" id="Hfj-Cp-DVf"/>
                             <constraint firstAttribute="trailing" secondItem="PCX-T6-PN7" secondAttribute="trailing" id="K8u-Rx-MoK"/>
+                            <constraint firstItem="PCX-T6-PN7" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="QC5-X7-0xP"/>
                             <constraint firstItem="MiH-Fy-mLO" firstAttribute="centerX" secondItem="f7F-ky-8Ko" secondAttribute="centerX" constant="13" id="Url-wc-l4H"/>
                             <constraint firstItem="f7F-ky-8Ko" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hOx-ne-smT"/>
                             <constraint firstItem="S1D-S2-sNc" firstAttribute="centerX" secondItem="MiH-Fy-mLO" secondAttribute="centerX" id="oYb-LU-4cV"/>
@@ -66,5 +66,6 @@
     </scenes>
     <resources>
         <image name="SideMenuLogo" width="340" height="287"/>
+        <image name="background_image.png" width="576" height="851"/>
     </resources>
 </document>

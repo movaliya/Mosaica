@@ -85,6 +85,7 @@
 		2965C73E20EBC7F8008CEDBA /* AboutUsVW.m in Sources */ = {isa = PBXBuildFile; fileRef = 2965C73D20EBC7F8008CEDBA /* AboutUsVW.m */; };
 		297CEA8820F088AF0001A440 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297CEA8720F088AF0001A440 /* FacebookSDK.framework */; };
 		B1373B9220F0B45000D6D23F /* ShowTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1373B9120F0B45000D6D23F /* ShowTimeCell.xib */; };
+		B1373B9420F10B9500D6D23F /* background_image.png in Resources */ = {isa = PBXBuildFile; fileRef = B1373B9320F10B9500D6D23F /* background_image.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -239,6 +240,7 @@
 		654CA22D047ADA5159CC00B8 /* Pods-Mosaica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mosaica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mosaica/Pods-Mosaica.release.xcconfig"; sourceTree = "<group>"; };
 		7864393EB8EDBC3F50E92149 /* Pods-Mosaica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mosaica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mosaica/Pods-Mosaica.debug.xcconfig"; sourceTree = "<group>"; };
 		B1373B9120F0B45000D6D23F /* ShowTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowTimeCell.xib; sourceTree = "<group>"; };
+		B1373B9320F10B9500D6D23F /* background_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_image.png; sourceTree = "<group>"; };
 		F9575522A5B41F4BBF81AFC3 /* libPods-Mosaica.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mosaica.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -277,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				29207A5820ED0D57007976AE /* Mosaica.entitlements */,
+				B1373B9320F10B9500D6D23F /* background_image.png */,
 				297CEA8720F088AF0001A440 /* FacebookSDK.framework */,
 				2965C6F120EB9B3A008CEDBA /* ios */,
 				2965C6F620EB9FF4008CEDBA /* Cell */,
@@ -679,6 +682,7 @@
 				29207A5720ECF619007976AE /* HomeCELL1.xib in Resources */,
 				291CF0DD20EC925900FBEB0A /* MenuCell.xib in Resources */,
 				291CF0D920EC91EB00FBEB0A /* Main.storyboard in Resources */,
+				B1373B9420F10B9500D6D23F /* background_image.png in Resources */,
 				2965C6F220EB9B3A008CEDBA /* ios in Resources */,
 				29207A5220ECF606007976AE /* HomeCELL2.xib in Resources */,
 				2965C6DB20EB6729008CEDBA /* KVNProgressView.xib in Resources */,
