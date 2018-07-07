@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
-
+#import "Mosaica.pch"
+@import Firebase;
+@import FirebaseMessaging;
 #if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 @import UserNotifications;
 #endif
@@ -17,7 +19,7 @@
 
 #if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 
-@interface AppDelegate ()<UNUserNotificationCenterDelegate>
+@interface AppDelegate ()<UNUserNotificationCenterDelegate,FIRMessagingDelegate>
 
 @end
 #endif
@@ -35,6 +37,19 @@
     
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 
+    // [FIRApp configure];
+    [FIRMessaging messaging].delegate = self;
+#ifdef DEBUG
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"GoogleService-Info" ofType:@"plist"];
+#else
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"GoogleService-Info" ofType:@"plist"];
+#endif
+    FIROptions *options = [[FIROptions alloc] initWithContentsOfFile:filePath];
+    [FIRApp configureWithOptions:options];
+    
+    // [START set_messaging_delegate]
+    [FIRMessaging messaging].delegate = self;
+    [FIRMessaging messaging].shouldEstablishDirectChannel = TRUE;
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1) {
         // iOS 7.1 or earlier. Disable the deprecation warnings.
 #pragma clang diagnostic push
@@ -67,7 +82,8 @@
             }];
 #endif
         }
-        
+        [FIRMessaging messaging].shouldEstablishDirectChannel = TRUE;
+        [application registerForRemoteNotifications];
         // [END register_for_notifications]
     }
     
@@ -77,6 +93,63 @@
     // Override point for customization after application launch.
     return YES;
 }
+- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
+    NSLog(@"FCM registration token: %@", fcmToken);
+    self.FCMDeviceToken = fcmToken;
+     BOOL internet=[AppDelegate connectedToNetwork];
+    if (internet)
+        [self performSelector:@selector(GenralNotificationService) withObject:nil afterDelay:0.0f];
+    else
+        [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+    
+    // TODO: If necessary send token to application server.
+    // Note: This callback is fired at each app startup and whenever a new token is generated.
+}
+-(void)GenralNotificationService
+{
+    
+    NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
+    if (self.strDeviceToken)
+    {
+        [dictParams setObject:self.strDeviceToken  forKey:@"device_id"];
+    }
+    else
+    {
+        [dictParams setObject:@"DeviceToken"  forKey:@"device_id"];
+    }
+    
+    if (self.FCMDeviceToken)
+    {
+        [dictParams setObject:self.FCMDeviceToken  forKey:@"fcm_token"];
+    }
+    else
+    {
+        [dictParams setObject:@"fcm_token"  forKey:@"fcm_token"];
+    }
+    [dictParams setObject:@"ios"  forKey:@"device_type"];
+    
+    
+    [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,GenralNotification] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
+     {
+         [self handleResponse:response];
+     }];
+}
+- (void)handleResponse:(NSDictionary*)response
+{
+    if ([[response objectForKey:@"success"] boolValue] ==YES )
+    {
+        
+    }
+    else
+    {
+    }
+    
+}
+- (void)messaging:(FIRMessaging *)messaging didReceiveMessage:(FIRMessagingRemoteMessage *)remoteMessage {
+    
+    NSLog(@"Received data message: %@", remoteMessage.appData);
+}
+
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     
     return [FBAppCall handleOpenURL:url
@@ -128,9 +201,12 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     
+    [FIRMessaging messaging].APNSToken = deviceToken;
     NSString *strDevicetoken = [[NSString alloc]initWithFormat:@"%@",[[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""]];
     NSLog(@"Device Token = %@",strDevicetoken);
     self.strDeviceToken = strDevicetoken;
+    
+    [FIRMessaging messaging].APNSToken = deviceToken;
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo

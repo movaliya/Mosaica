@@ -39,7 +39,7 @@ static NSString *LIVEVideoHTML = @"<!DOCTYPE html><html><body><div id=\"player\"
 #define aboutLink @"get_aboutus"
 #define bannerLink @"get_advertisement"
 #define FBLogin @"facebook_login"
-
+#define GenralNotification @"genral_notification"
 
 
 

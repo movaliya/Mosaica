@@ -11,11 +11,14 @@
 #import "HomeCELL2.h"
 #import "UIButton+WebCache.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "AppDelegate.h"
 
 @interface HomeVC ()
 {
     UIRefreshControl *refreshControl;
 }
+@property AppDelegate *appDelegate;
+
 @end
 
 @implementation HomeVC
@@ -35,7 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+     self.appDelegate = [AppDelegate sharedInstance];
     static NSString *CellIdentifier1 = @"HomeCELL1";
     static NSString *CellIdentifier2 = @"HomeCELL2";
     
@@ -55,6 +58,8 @@
         [self performSelector:@selector(GetBanner) withObject:nil afterDelay:0.0f];
     else
         [AppDelegate showErrorMessageWithTitle:@"" message:@"Please check your internet connection or try again later." delegate:nil];
+    
+    
 }
 
 - (void)refreshTable

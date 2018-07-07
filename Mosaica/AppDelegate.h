@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
 #import <UserNotifications/UserNotifications.h>
+@import Firebase;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,FIRMessagingDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 -(void)openActiveSessionWithPermissions:(NSArray *)permissions allowLoginUI:(BOOL)allowLoginUI;
 @property (strong, nonatomic) NSString *strDeviceToken;
+@property (strong, nonatomic) NSString *FCMDeviceToken;
 
 +(BOOL)connectedToNetwork;
 + (AppDelegate *)sharedInstance;
