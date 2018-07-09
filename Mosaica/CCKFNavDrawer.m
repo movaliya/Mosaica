@@ -323,60 +323,6 @@
     {
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     }
-    /*
-    if (indexPath.row==0)
-    {
-        cell.IconWidth.constant=19;
-        cell.IconHeight.constant=16;
-        cell.IconX.constant=8;
-        cell.ImgLblGap.constant=16;
-        
-    }
-    if (indexPath.row==1)
-    {
-        cell.IconWidth.constant=20;
-        cell.IconHeight.constant=15;
-        cell.IconX.constant=8;
-        cell.ImgLblGap.constant=15.5;
-        
-    }
-    if (indexPath.row==2)
-    {
-        cell.IconWidth.constant=14;
-        cell.IconHeight.constant=14;
-        cell.IconX.constant=8;
-        cell.ImgLblGap.constant=19;
-    }
-    if (indexPath.row==3)
-    {
-        cell.IconWidth.constant=17;
-        cell.IconHeight.constant=17;
-        cell.IconX.constant=8;
-        cell.ImgLblGap.constant=16;
-    }
-    if (indexPath.row==4)
-    {
-        cell.IconWidth.constant=14;
-        cell.IconHeight.constant=13;
-        cell.IconX.constant=8;
-        cell.ImgLblGap.constant=19;
-    }
-    if (indexPath.row==5)
-    {
-        cell.IconWidth.constant=15;
-        cell.IconHeight.constant=15;
-        cell.IconX.constant=8;
-        cell.ImgLblGap.constant=18;
-    }
-    if (indexPath.row==6)
-    {
-        cell.IconWidth.constant=14;
-        cell.IconHeight.constant=20;
-        cell.IconX.constant=8;
-        cell.ImgLblGap.constant=18;
-        
-    }*/
-    
     
     cell.Title_LBL.text=[TitleArr objectAtIndex:indexPath.row];
     cell.IconIMG.image=[UIImage imageNamed:[ImgArr objectAtIndex:indexPath.row]];
@@ -389,6 +335,7 @@
 #pragma mark - Table view delegate
 -(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   
     MenuCell *cell = (MenuCell *)[tableView cellForRowAtIndexPath:indexPath];
     [cell.Title_LBL setTextColor:AppBlueColor];
     [cell.IconIMG setDispatchWithTint:cell.IconIMG.image];

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C126925994C3591A3A50E43 /* libPods-Mosaica.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9575522A5B41F4BBF81AFC3 /* libPods-Mosaica.a */; };
+		2919EF6D20F32CB100C6A929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2919EF6C20F32CB100C6A929 /* Main.storyboard */; };
+		2919EF6F20F33CB500C6A929 /* ENbellIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919EF6E20F33CB500C6A929 /* ENbellIcon.png */; };
 		291CF0DB20EC924A00FBEB0A /* DrawerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 291CF0DA20EC924A00FBEB0A /* DrawerView.xib */; };
 		291CF0DD20EC925900FBEB0A /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 291CF0DC20EC925900FBEB0A /* MenuCell.xib */; };
 		291CF0E020EC959200FBEB0A /* ImageWithTintColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 291CF0DF20EC959200FBEB0A /* ImageWithTintColor.m */; };
@@ -89,6 +91,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2919EF6C20F32CB100C6A929 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2919EF6E20F33CB500C6A929 /* ENbellIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ENbellIcon.png; sourceTree = "<group>"; };
 		291CF0DA20EC924A00FBEB0A /* DrawerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawerView.xib; sourceTree = "<group>"; };
 		291CF0DC20EC925900FBEB0A /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		291CF0DE20EC959200FBEB0A /* ImageWithTintColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageWithTintColor.h; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 				2965C70620EBB230008CEDBA /* ContactUsVW.m */,
 				2965C73C20EBC7F8008CEDBA /* AboutUsVW.h */,
 				2965C73D20EBC7F8008CEDBA /* AboutUsVW.m */,
+				2919EF6C20F32CB100C6A929 /* Main.storyboard */,
 				2965C67420EB6217008CEDBA /* Mosaica.pch */,
 				2965C6FF20EBA67A008CEDBA /* CommanClass */,
 				2965C6F020EB690D008CEDBA /* Images */,
@@ -483,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				2965C6EE20EB6907008CEDBA /* WhiteMenuIcon.png */,
+				2919EF6E20F33CB500C6A929 /* ENbellIcon.png */,
 				2965C70320EBB189008CEDBA /* bellIcon.png */,
 			);
 			name = Images;
@@ -679,11 +685,13 @@
 				2965C70420EBB189008CEDBA /* bellIcon.png in Resources */,
 				298E8BE120F11197000239CC /* GoogleService-Info.plist in Resources */,
 				2965C63D20EB5D7D008CEDBA /* Assets.xcassets in Resources */,
+				2919EF6D20F32CB100C6A929 /* Main.storyboard in Resources */,
 				2965C6EF20EB6907008CEDBA /* WhiteMenuIcon.png in Resources */,
 				29207A5720ECF619007976AE /* HomeCELL1.xib in Resources */,
 				291CF0DD20EC925900FBEB0A /* MenuCell.xib in Resources */,
 				B1373B9420F10B9500D6D23F /* background_image.png in Resources */,
 				2965C6F220EB9B3A008CEDBA /* ios in Resources */,
+				2919EF6F20F33CB500C6A929 /* ENbellIcon.png in Resources */,
 				29207A5220ECF606007976AE /* HomeCELL2.xib in Resources */,
 				2965C6DB20EB6729008CEDBA /* KVNProgressView.xib in Resources */,
 				291CF0DB20EC924A00FBEB0A /* DrawerView.xib in Resources */,

@@ -160,6 +160,7 @@
     cell.Date_LBL.text=DateString;
     
     [cell.Bell_BTN addTarget:self action:@selector(BellBTN_Click:) forControlEvents:UIControlEventTouchUpInside];
+    cell.Bell_BTN.tag=indexPath.section;
     
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -194,7 +195,11 @@
 
 -(void)BellBTN_Click:(id)sender
 {
+    UIButton *instanceButton = (UIButton*)sender;
+   
     NSString *chkFBLogin=[[NSUserDefaults standardUserDefaults]objectForKey:@"Login"];
+    ShowID=[[ShowTimeData valueForKey:@"timetable_id"]objectAtIndex:instanceButton.tag];
+    
     
     if ([chkFBLogin isEqualToString:@"YES"])
     {
@@ -271,6 +276,36 @@
 }
 
 - (void)handleResponse:(NSDictionary*)response
+{
+    if ([[response objectForKey:@"success"] boolValue] ==YES )
+    {
+        NSDictionary *datashow=[[response objectForKey:@"data"] mutableCopy];
+        [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"Login"];
+        
+         [[NSUserDefaults standardUserDefaults]setObject:[datashow valueForKey:@"user_id"] forKey:@"UserId"];
+        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:@"Login Successfully." delegate:nil];
+        
+    }
+    else
+    {
+        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
+    }
+    
+}
+-(void)SetReminder
+{
+     NSString *UserID=[[NSUserDefaults standardUserDefaults]objectForKey:@"UserId"];
+    NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
+    [dictParams setObject:ShowID  forKey:@"timetable_id"];
+    [dictParams setObject:UserID  forKey:@"user_id"];
+    
+    [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,SetReminderForShow] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
+     {
+         [self handleSetReminderResponse:response];
+     }];
+}
+
+- (void)handleSetReminderResponse:(NSDictionary*)response
 {
     if ([[response objectForKey:@"success"] boolValue] ==YES )
     {
