@@ -15,7 +15,7 @@
     NSMutableDictionary *ShowTimeData;
     UIRefreshControl *refreshControl;
     NSMutableDictionary *FBSignIndictParams;
-    NSString *ShowID;
+    NSString *ShowID,*RemidnerID;
 
 }
 @property (strong, nonatomic) CCKFNavDrawer *rootNav;

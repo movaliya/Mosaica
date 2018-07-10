@@ -77,11 +77,27 @@
 
 -(void)GetShowtime
 {
+    NSString *UserID=[[NSUserDefaults standardUserDefaults]objectForKey:@"UserId"];
+    NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
     
-    [CommonWS Getmethod:[NSString stringWithFormat:@"%@%@",BaseUrl,Gettimetable] withCompletion:^(NSDictionary *response, BOOL success1)
-     {
-         [self handleOrderCardItemResponse:response];
-     }];
+    if (!UserID)
+    {
+        [CommonWS Getmethod:[NSString stringWithFormat:@"%@%@",BaseUrl,Gettimetable] withCompletion:^(NSDictionary *response, BOOL success1)
+         {
+             [self handleOrderCardItemResponse:response];
+         }];
+    }
+    else
+    {
+         [dictParams setObject:UserID  forKey:@"user_id"];
+        [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,Gettimetable] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
+         {
+             [self handleOrderCardItemResponse:response];
+         }];
+    }
+    
+    
+    
 }
 
 - (void)handleOrderCardItemResponse:(NSDictionary*)response
@@ -158,7 +174,19 @@
     cell.Time_LBL.text=pmamDateString;
     cell.Description_LBL.text=[[ShowTimeData valueForKey:@"description"]objectAtIndex:indexPath.section];
     cell.Date_LBL.text=DateString;
+    NSString *reminder_id=[[ShowTimeData valueForKey:@"reminder_id"]objectAtIndex:indexPath.section];
     
+    
+    if ([reminder_id isEqualToString:@""])
+    {
+         UIImage *btnImage = [UIImage imageNamed:@"bellIcon.png"];
+        [cell.Bell_BTN setImage:btnImage forState:UIControlStateNormal];
+    }
+    else
+    {
+        UIImage *btnImage = [UIImage imageNamed:@"ENbellIcon.png"];
+        [cell.Bell_BTN setImage:btnImage forState:UIControlStateNormal];
+    }
     [cell.Bell_BTN addTarget:self action:@selector(BellBTN_Click:) forControlEvents:UIControlEventTouchUpInside];
     cell.Bell_BTN.tag=indexPath.section;
     
@@ -199,11 +227,20 @@
    
     NSString *chkFBLogin=[[NSUserDefaults standardUserDefaults]objectForKey:@"Login"];
     ShowID=[[ShowTimeData valueForKey:@"timetable_id"]objectAtIndex:instanceButton.tag];
-    
+    RemidnerID=[[ShowTimeData valueForKey:@"reminder_id"]objectAtIndex:instanceButton.tag];
     
     if ([chkFBLogin isEqualToString:@"YES"])
     {
-         [AppDelegate showErrorMessageWithTitle:@"" message:@"You are already login." delegate:nil];
+         //[AppDelegate showErrorMessageWithTitle:@"" message:@"You are already login." delegate:nil];
+        if ([RemidnerID isEqualToString:@""])
+        {
+            [self SetReminder];
+        }
+        else
+        {
+            [self UnSetReminder];
+        }
+        
     }
     else
     {
@@ -283,7 +320,8 @@
         [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"Login"];
         
          [[NSUserDefaults standardUserDefaults]setObject:[datashow valueForKey:@"user_id"] forKey:@"UserId"];
-        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:@"Login Successfully." delegate:nil];
+        //[AppDelegate showErrorMessageWithTitle:AlertTitleError message:@"Login Successfully." delegate:nil];
+        [self SetReminder];
         
     }
     else
@@ -309,8 +347,8 @@
 {
     if ([[response objectForKey:@"success"] boolValue] ==YES )
     {
-        [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"Login"];
-        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:@"Login Successfully." delegate:nil];
+        [self GetShowtime];
+        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:@"Show Active." delegate:nil];
         
     }
     else
@@ -319,6 +357,35 @@
     }
     
 }
+-(void)UnSetReminder
+{
+    NSString *UserID=[[NSUserDefaults standardUserDefaults]objectForKey:@"UserId"];
+    NSMutableDictionary *dictParams = [[NSMutableDictionary alloc] init];
+    [dictParams setObject:ShowID  forKey:@"timetable_id"];
+    [dictParams setObject:UserID  forKey:@"user_id"];
+    [dictParams setObject:RemidnerID  forKey:@"reminder_id"];
+    
+    [CommonWS AAwebserviceWithURL:[NSString stringWithFormat:@"%@%@",BaseUrl,UnSet_Reminder] withParam:dictParams withCompletion:^(NSDictionary *response, BOOL success1)
+     {
+         [self handleunSetReminderResponse:response];
+     }];
+}
+
+- (void)handleunSetReminderResponse:(NSDictionary*)response
+{
+    if ([[response objectForKey:@"success"] boolValue] ==YES )
+    {
+        [self GetShowtime];
+        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:@"Unset Reminder for this Show" delegate:nil];
+        
+    }
+    else
+    {
+        [AppDelegate showErrorMessageWithTitle:AlertTitleError message:[response objectForKey:@"ack_msg"] delegate:nil];
+    }
+    
+}
+
 - (IBAction)MenuBtn_Click:(id)sender {
       //[self.rootNav drawerToggle];
     [self.navigationController popViewControllerAnimated:YES];
