@@ -274,6 +274,8 @@
                                          
                                           FBSignIndictParams = [[NSMutableDictionary alloc] init];
                                           [FBSignIndictParams setObject:[result objectForKey:@"id"]  forKey:@"facebook_id"];
+                                          [FBSignIndictParams setObject:@"ios"  forKey:@"device_type"];
+                                          
                                           if (self.appDelegate.FCMDeviceToken)
                                           {
                                               [FBSignIndictParams setObject:self.appDelegate.FCMDeviceToken  forKey:@"fcm_token"];
