@@ -12,9 +12,11 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *drawerTableView;
 @property (weak, nonatomic) IBOutlet UIButton *Back_BTN;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *LogoWidht;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *LogoHight;
+
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *LBLLeading;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *LBL_Trailing;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *LogoLBLGap;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *TableTop;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *LogoHight;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *LogoWidht;
 @end

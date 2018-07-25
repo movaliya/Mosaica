@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "Mosaica.pch"
+
 @import Firebase;
 @import FirebaseMessaging;
 #if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
@@ -33,7 +34,18 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+    {
+        [SharedClass sharedSingleton].storyBaordName = @"MainIPadStoryboard";
+        // The device is an iPad running iPhone 3.2 or later.
+    }
+    else
+    {
+        [SharedClass sharedSingleton].storyBaordName = @"Main";
+        // The device is an iPhone or iPod touch.
+    }
     
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 

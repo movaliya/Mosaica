@@ -45,11 +45,23 @@
                                                  name:@"SessionStateChangeNotification"
                                                object:nil];
     
-    static NSString *CellIdentifier = @"ShowTimeCell";
-    UINib *nib = [UINib nibWithNibName:@"ShowTimeCell" bundle:nil];
-    [TableVW registerNib:nib forCellReuseIdentifier:CellIdentifier];
-    // News_TBL.estimatedRowHeight = 220;
-    TableVW.rowHeight = UITableViewAutomaticDimension;
+    if (IS_IPAD)
+    {
+        static NSString *CellIdentifier = @"ShowTimeCellIpad";
+        UINib *nib = [UINib nibWithNibName:@"ShowTimeCellIpad" bundle:nil];
+        [TableVW registerNib:nib forCellReuseIdentifier:CellIdentifier];
+        // News_TBL.estimatedRowHeight = 220;
+        TableVW.rowHeight = UITableViewAutomaticDimension;
+    }
+    else
+    {
+        static NSString *CellIdentifier = @"ShowTimeCell";
+        UINib *nib = [UINib nibWithNibName:@"ShowTimeCell" bundle:nil];
+        [TableVW registerNib:nib forCellReuseIdentifier:CellIdentifier];
+        // News_TBL.estimatedRowHeight = 220;
+        TableVW.rowHeight = UITableViewAutomaticDimension;
+    }
+   
     
     refreshControl = [[UIRefreshControl alloc]init];
     [TableVW addSubview:refreshControl];
@@ -117,7 +129,13 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
+    if (IS_IPAD)
+    {
+        return 115.0f;
+
+    }
     return 115.0f;
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -133,7 +151,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 10.; // you can have your own choice, of course
+    return 10.0f; // you can have your own choice, of course
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -145,7 +163,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ShowTimeCell";
+    NSString *CellIdentifier;
+    if (IS_IPAD)
+    {
+        CellIdentifier = @"ShowTimeCellIpad";
+        
+    }
+    else
+    {
+        CellIdentifier = @"ShowTimeCell";
+        
+    }
     ShowTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     cell=nil;
     if (cell == nil)
@@ -153,6 +181,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
     }
+    
     
     NSString *oldTime=[[ShowTimeData valueForKey:@"show_time"]objectAtIndex:indexPath.section];
     NSString *newTime = [oldTime substringToIndex:[oldTime length]-3];

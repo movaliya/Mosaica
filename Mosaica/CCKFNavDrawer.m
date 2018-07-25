@@ -57,22 +57,31 @@
     
     
     [self setUpDrawer];
-    
-    if (SCREEN_HEIGHT==480)
+    if (IS_IPAD)
     {
-        self.drawerView.LogoWidht.constant=170;
-        self.drawerView.LogoHight.constant=86;
-        self.drawerView.LBLLeading.constant=25;
-        self.drawerView.LBL_Trailing.constant=25;
-        self.drawerView.LogoLBLGap.constant=20;
+        self.drawerView.LogoHight.constant=230;
+        self.drawerView.LogoWidht.constant=240;
+        
+        self.drawerView.TableTop.constant=70;
     }
     else
     {
-        self.drawerView.LogoWidht.constant=212;
-        self.drawerView.LogoHight.constant=114;
-        self.drawerView.LBLLeading.constant=20;
-        self.drawerView.LBL_Trailing.constant=20;
-        self.drawerView.LogoLBLGap.constant=29;
+        if (SCREEN_HEIGHT==480)
+        {
+            self.drawerView.LogoWidht.constant=170;
+            self.drawerView.LogoHight.constant=86;
+            self.drawerView.LBLLeading.constant=25;
+            self.drawerView.LBL_Trailing.constant=25;
+            self.drawerView.LogoLBLGap.constant=20;
+        }
+        else
+        {
+            self.drawerView.LogoWidht.constant=212;
+            self.drawerView.LogoHight.constant=114;
+            self.drawerView.LBLLeading.constant=20;
+            self.drawerView.LBL_Trailing.constant=20;
+            self.drawerView.LogoLBLGap.constant=29;
+        }
     }
 
 }
@@ -322,6 +331,11 @@
     if (cell == nil)
     {
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    }
+    
+    if (IS_IPAD)
+    {
+        cell.Title_LBL.font=[UIFont fontWithName:@"Helvetica-Semibold" size:17.0];
     }
     
     cell.Title_LBL.text=[TitleArr objectAtIndex:indexPath.row];

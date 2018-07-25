@@ -96,14 +96,29 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    if (indexPath.section==0)
+    if (IS_IPAD)
     {
-        return 200.0f;
+        if (indexPath.section==0)
+        {
+            return 250.0f;
+        }
+        else
+        {
+            return 230.0f;
+        }
     }
     else
     {
-        return 180.0f;
+        if (indexPath.section==0)
+        {
+            return 200.0f;
+        }
+        else
+        {
+            return 180.0f;
+        }
     }
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

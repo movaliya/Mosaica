@@ -7,14 +7,16 @@
 //
 
 #import "DrawerView.h"
+#import "Mosaica.pch"
 
 @implementation DrawerView
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+    if (self)
+    {
+        
     }
     return self;
 }

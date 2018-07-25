@@ -88,6 +88,9 @@
 		298E8BE120F11197000239CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 298E8BE020F11197000239CC /* GoogleService-Info.plist */; };
 		B1373B9220F0B45000D6D23F /* ShowTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1373B9120F0B45000D6D23F /* ShowTimeCell.xib */; };
 		B1373B9420F10B9500D6D23F /* background_image.png in Resources */ = {isa = PBXBuildFile; fileRef = B1373B9320F10B9500D6D23F /* background_image.png */; };
+		B142EC7A2108DEB3009494FE /* MainIPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B142EC792108DEB3009494FE /* MainIPadStoryboard.storyboard */; };
+		B142EC7C2108E465009494FE /* ShowTimeCellIpad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B142EC7B2108E465009494FE /* ShowTimeCellIpad.xib */; };
+		B142EC7F2108E5E7009494FE /* SharedClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B142EC7E2108E5E7009494FE /* SharedClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -245,6 +248,10 @@
 		7864393EB8EDBC3F50E92149 /* Pods-Mosaica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mosaica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mosaica/Pods-Mosaica.debug.xcconfig"; sourceTree = "<group>"; };
 		B1373B9120F0B45000D6D23F /* ShowTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowTimeCell.xib; sourceTree = "<group>"; };
 		B1373B9320F10B9500D6D23F /* background_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_image.png; sourceTree = "<group>"; };
+		B142EC792108DEB3009494FE /* MainIPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainIPadStoryboard.storyboard; sourceTree = "<group>"; };
+		B142EC7B2108E465009494FE /* ShowTimeCellIpad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowTimeCellIpad.xib; sourceTree = "<group>"; };
+		B142EC7D2108E5E7009494FE /* SharedClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedClass.h; sourceTree = "<group>"; };
+		B142EC7E2108E5E7009494FE /* SharedClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedClass.m; sourceTree = "<group>"; };
 		F9575522A5B41F4BBF81AFC3 /* libPods-Mosaica.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mosaica.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -300,6 +307,7 @@
 				2965C73C20EBC7F8008CEDBA /* AboutUsVW.h */,
 				2965C73D20EBC7F8008CEDBA /* AboutUsVW.m */,
 				2919EF6C20F32CB100C6A929 /* Main.storyboard */,
+				B142EC792108DEB3009494FE /* MainIPadStoryboard.storyboard */,
 				2965C67420EB6217008CEDBA /* Mosaica.pch */,
 				2965C6FF20EBA67A008CEDBA /* CommanClass */,
 				2965C6F020EB690D008CEDBA /* Images */,
@@ -323,6 +331,8 @@
 		2965C66320EB5E53008CEDBA /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				B142EC7D2108E5E7009494FE /* SharedClass.h */,
+				B142EC7E2108E5E7009494FE /* SharedClass.m */,
 				2965C66420EB5E62008CEDBA /* CCKFNavDrawer.h */,
 				2965C66520EB5E62008CEDBA /* CCKFNavDrawer.m */,
 				291CF0DA20EC924A00FBEB0A /* DrawerView.xib */,
@@ -500,6 +510,7 @@
 				2965C6FA20EBA035008CEDBA /* ShowTimeCell.h */,
 				2965C6FB20EBA035008CEDBA /* ShowTimeCell.m */,
 				B1373B9120F0B45000D6D23F /* ShowTimeCell.xib */,
+				B142EC7B2108E465009494FE /* ShowTimeCellIpad.xib */,
 				29207A5320ECF619007976AE /* HomeCELL1.h */,
 				29207A5420ECF619007976AE /* HomeCELL1.m */,
 				29207A5520ECF619007976AE /* HomeCELL1.xib */,
@@ -682,11 +693,13 @@
 				2965C64020EB5D7D008CEDBA /* LaunchScreen.storyboard in Resources */,
 				2965C73B20EBC08D008CEDBA /* IQKeyboardManager.bundle in Resources */,
 				B1373B9220F0B45000D6D23F /* ShowTimeCell.xib in Resources */,
+				B142EC7A2108DEB3009494FE /* MainIPadStoryboard.storyboard in Resources */,
 				2965C70420EBB189008CEDBA /* bellIcon.png in Resources */,
 				298E8BE120F11197000239CC /* GoogleService-Info.plist in Resources */,
 				2965C63D20EB5D7D008CEDBA /* Assets.xcassets in Resources */,
 				2919EF6D20F32CB100C6A929 /* Main.storyboard in Resources */,
 				2965C6EF20EB6907008CEDBA /* WhiteMenuIcon.png in Resources */,
+				B142EC7C2108E465009494FE /* ShowTimeCellIpad.xib in Resources */,
 				29207A5720ECF619007976AE /* HomeCELL1.xib in Resources */,
 				291CF0DD20EC925900FBEB0A /* MenuCell.xib in Resources */,
 				B1373B9420F10B9500D6D23F /* background_image.png in Resources */,
@@ -779,6 +792,7 @@
 				2965C6ED20EB6772008CEDBA /* UIImage+KVNImageEffects.m in Sources */,
 				2965C66C20EB5E62008CEDBA /* CCKFNavDrawer.m in Sources */,
 				2965C6BD20EB66CE008CEDBA /* AFNetworkActivityIndicatorManager.m in Sources */,
+				B142EC7F2108E5E7009494FE /* SharedClass.m in Sources */,
 				2965C73420EBC076008CEDBA /* IQBarButtonItem.m in Sources */,
 				2965C6A220EB66AB008CEDBA /* UIImage+MultiFormat.m in Sources */,
 				2965C6D520EB66E6008CEDBA /* AFURLRequestSerialization.m in Sources */,
