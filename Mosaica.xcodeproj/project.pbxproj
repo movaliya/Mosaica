@@ -85,7 +85,7 @@
 		2965C73B20EBC08D008CEDBA /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2965C73A20EBC08D008CEDBA /* IQKeyboardManager.bundle */; };
 		2965C73E20EBC7F8008CEDBA /* AboutUsVW.m in Sources */ = {isa = PBXBuildFile; fileRef = 2965C73D20EBC7F8008CEDBA /* AboutUsVW.m */; };
 		297CEA8820F088AF0001A440 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297CEA8720F088AF0001A440 /* FacebookSDK.framework */; };
-		298E8BE120F11197000239CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 298E8BE020F11197000239CC /* GoogleService-Info.plist */; };
+		297F04D02109A01400268E6D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 297F04CF2109A01400268E6D /* GoogleService-Info.plist */; };
 		B1373B9220F0B45000D6D23F /* ShowTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1373B9120F0B45000D6D23F /* ShowTimeCell.xib */; };
 		B1373B9420F10B9500D6D23F /* background_image.png in Resources */ = {isa = PBXBuildFile; fileRef = B1373B9320F10B9500D6D23F /* background_image.png */; };
 		B142EC7A2108DEB3009494FE /* MainIPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B142EC792108DEB3009494FE /* MainIPadStoryboard.storyboard */; };
@@ -243,7 +243,7 @@
 		2965C73C20EBC7F8008CEDBA /* AboutUsVW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsVW.h; sourceTree = "<group>"; };
 		2965C73D20EBC7F8008CEDBA /* AboutUsVW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsVW.m; sourceTree = "<group>"; };
 		297CEA8720F088AF0001A440 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		298E8BE020F11197000239CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		297F04CF2109A01400268E6D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		654CA22D047ADA5159CC00B8 /* Pods-Mosaica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mosaica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mosaica/Pods-Mosaica.release.xcconfig"; sourceTree = "<group>"; };
 		7864393EB8EDBC3F50E92149 /* Pods-Mosaica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mosaica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mosaica/Pods-Mosaica.debug.xcconfig"; sourceTree = "<group>"; };
 		B1373B9120F0B45000D6D23F /* ShowTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowTimeCell.xib; sourceTree = "<group>"; };
@@ -290,7 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				29207A5820ED0D57007976AE /* Mosaica.entitlements */,
-				298E8BE020F11197000239CC /* GoogleService-Info.plist */,
+				297F04CF2109A01400268E6D /* GoogleService-Info.plist */,
 				B1373B9320F10B9500D6D23F /* background_image.png */,
 				297CEA8720F088AF0001A440 /* FacebookSDK.framework */,
 				2965C6F120EB9B3A008CEDBA /* ios */,
@@ -657,8 +657,8 @@
 				TargetAttributes = {
 					2965C62C20EB5D7D008CEDBA = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 7PFD68G63X;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = JB34S23H8H;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -695,7 +695,7 @@
 				B1373B9220F0B45000D6D23F /* ShowTimeCell.xib in Resources */,
 				B142EC7A2108DEB3009494FE /* MainIPadStoryboard.storyboard in Resources */,
 				2965C70420EBB189008CEDBA /* bellIcon.png in Resources */,
-				298E8BE120F11197000239CC /* GoogleService-Info.plist in Resources */,
+				297F04D02109A01400268E6D /* GoogleService-Info.plist in Resources */,
 				2965C63D20EB5D7D008CEDBA /* Assets.xcassets in Resources */,
 				2919EF6D20F32CB100C6A929 /* Main.storyboard in Resources */,
 				2965C6EF20EB6907008CEDBA /* WhiteMenuIcon.png in Resources */,
@@ -916,19 +916,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Mosaica/Mosaica.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = JB34S23H8H;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Mosaica",
 				);
 				INFOPLIST_FILE = Mosaica/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jkinfoway.Mosaica;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MosaicaTv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "947a27e8-b473-4d1e-b951-4169d4a02bf2";
+				PROVISIONING_PROFILE_SPECIFIER = MosaicaTv_Distri;
 			};
 			name = Debug;
 		};
@@ -938,19 +939,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Mosaica/Mosaica.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = JB34S23H8H;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Mosaica",
 				);
 				INFOPLIST_FILE = Mosaica/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jkinfoway.Mosaica;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MosaicaTv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "947a27e8-b473-4d1e-b951-4169d4a02bf2";
+				PROVISIONING_PROFILE_SPECIFIER = MosaicaTv_Distri;
 			};
 			name = Release;
 		};

@@ -32,7 +32,8 @@ static NSString *LIVEVideoHTML = @"<!DOCTYPE html><html><body><div id=\"player\"
 
 
 
-#define BaseUrl @"http://mosaicatv.sumayinfotech.com/ws/"
+#define BaseUrl @"http://mosaicatv.com/app/ws/"
+//#define BaseUrl @"http://mosaicatv.sumayinfotech.com/ws/"
 
 #define Gettimetable @"get_timetable"
 #define Getsociallink @"get_sociallink"

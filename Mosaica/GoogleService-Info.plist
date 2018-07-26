@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>10761057638-ioaajb0f730jmmr9qjnstg3otitap3oi.apps.googleusercontent.com</string>
+	<string>10761057638-htv8o49oklt89d1k86j4ntjenvmb9lpp.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.10761057638-ioaajb0f730jmmr9qjnstg3otitap3oi</string>
+	<string>com.googleusercontent.apps.10761057638-htv8o49oklt89d1k86j4ntjenvmb9lpp</string>
 	<key>API_KEY</key>
 	<string>AIzaSyC7thCyVaIANiMW58HVjn_GSNVq6Ml_eRU</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,23 +17,23 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.jkinfoway.Mosaica</string>
+	<string>com.MosaicaTv</string>
 	<key>PROJECT_ID</key>
 	<string>mosaica-tv</string>
 	<key>STORAGE_BUCKET</key>
 	<string>mosaica-tv.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:10761057638:ios:3c9ec64a9987d29b</string>
+	<string>1:10761057638:ios:0393554da3aceae3</string>
 	<key>DATABASE_URL</key>
 	<string>https://mosaica-tv.firebaseio.com</string>
 </dict>
